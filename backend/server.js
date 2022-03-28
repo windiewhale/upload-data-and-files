@@ -14,15 +14,16 @@ app.get("/", getFunction);
 app.use("/upload", express.static(`${__dirname}/../frontend/upload`));
 app.use("/pub", express.static(`${__dirname}/../frontend/public`));
 
-const uploads = path.join(`${__dirname}/../frontend/upload`)
+const uploads = path.join(`${__dirname}/../frontend/upload/`)
 app.post("/", (req, res) => {
     
     //upload img
     const picture = req.files.picture;
     if (picture){
         console.dir(picture)
-        picture.mv(uploads + "profile.jpg")  // logolja az adatait, így működik épp.
-    }
+        picture.mv(uploads + "profile.jpg")  
+    } 
+    res.send("ohh yeah")
  /* 
     //upload data 
     const formData = req.body;
