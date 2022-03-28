@@ -19,11 +19,13 @@ app.post("/", (req, res) => {
     
     //upload img
     const picture = req.files.picture;
+    const answer = {}
     if (picture){
         console.dir(picture)
-        picture.mv(uploads + "profile.jpg")  
+        picture.mv(`${uploads}${picture.name}`)  
     } 
-    res.send("ohh yeah")
+    answer.pictureName = picture.name //fontos h ugyanaz a név legyen mint frontenden
+    res.send(answer) 
  /* 
     //upload data 
     const formData = req.body;
